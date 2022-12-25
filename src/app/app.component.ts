@@ -91,7 +91,7 @@ export class AppComponent {
   downloadChart() {
     // Download PDF
     if (this.docDefinition) {
-      pdfMake.createPdf(this.docDefinition).download('chartToPdf' + '.pdf');
+      pdfMake.createPdf(this.docDefinition).download('chartwithData' + '.pdf');
     } else {
       console.log('Chart is not yet rendered!');
     }
@@ -122,7 +122,7 @@ export class AppComponent {
         pageMargins: [40, 60, 40, 60],
       };
       const pdfDocGenerator = pdfMake.createPdf(documentDefinition);
-      pdfDocGenerator.download('anand');
+      pdfDocGenerator.download('onlyChart');
     });
   }
 }
