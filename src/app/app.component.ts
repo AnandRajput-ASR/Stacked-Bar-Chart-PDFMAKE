@@ -3,8 +3,8 @@ import html2canvas from 'html2canvas';
 
 import { DataService } from './data.service';
 // declare var pdfMake: any;
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -49,41 +49,52 @@ export class AppComponent {
       });
     });
 
-    const chart = document.getElementById('chart');
-    html2canvas(chart!).then((canvas) => {
-      let content: any[] = [];
-      const chartData = canvas.toDataURL('image/png', 1);
-      const docDefinition = {
-        content: content,
-        styles: {
-          subheader: {
-            fontSize: 16,
-            bold: true,
-            margin: [0, 10, 0, 5],
-            alignment: 'left',
+    setTimeout(() => {
+      const chart = document.getElementById('chart');
+      html2canvas(chart!).then((canvas) => {
+        let content: any[] = [];
+        const chartData = canvas.toDataURL('image/png', 1);
+        const docDefinition = {
+          content: content,
+          styles: {
+            subheader: {
+              fontSize: 16,
+              bold: true,
+              margin: [0, 10, 0, 5],
+              alignment: 'left',
+            },
+            subsubheader: {
+              fontSize: 12,
+              italics: true,
+              margin: [0, 10, 0, 25],
+              alignment: 'left',
+            },
           },
-          subsubheader: {
-            fontSize: 12,
-            italics: true,
-            margin: [0, 10, 0, 25],
-            alignment: 'left',
+          defaultStyle: {
+            alignment: 'justify',
           },
-        },
-        defaultStyle: {
-          alignment: 'justify',
-        },
-      };
-      const title = {
-        text: 'Here is the export of charts to the PDF',
-        style: 'subheader',
-      };
-      const description = { text: 'Some description', style: 'subsubheader' };
-      docDefinition.content.push(title);
-      docDefinition.content.push(description);
-      // Push image of the chart
-      docDefinition.content.push({ image: chartData, width: 500 });
-      this.docDefinition = docDefinition;
-    });
+        };
+        const title = {
+          text: 'Here is the export of charts to the PDF',
+          style: 'subheader',
+        };
+        const description = { text: 'Some description', style: 'subsubheader' };
+        docDefinition.content.push(title);
+        docDefinition.content.push(description);
+        // Push image of the chart
+        docDefinition.content.push({ image: chartData, width: 500 });
+        this.docDefinition = docDefinition;
+      });
+    }, 1100);
+  }
+
+  downloadChart() {
+    // Download PDF
+    if (this.docDefinition) {
+      pdfMake.createPdf(this.docDefinition).download('chartToPdf' + '.pdf');
+    } else {
+      console.log('Chart is not yet rendered!');
+    }
   }
 
   downloadPDF() {
