@@ -36,16 +36,21 @@ export class AppComponent {
   public barChartLegend: boolean = true;
 
   public barChartData: any[] = [
-    { data: [], label: 'Volume Sales' },
-    { data: [], label: 'Value Sales' },
+    { data: [], label: 'Failure-Device ID', backgroundColor:'rgba(255, 159, 64, 0.2)' },
+    { data: [], label: 'Failure-Endorsement Key' },
+    { data: [], label: 'Failure-Registration ID' },
+    { data: [], label: 'Successful' },
+
   ];
   constructor(private _emp: DataService) {}
   ngOnInit() {
     this._emp.getSales().subscribe((data) => {
       this.barChartLabels = Object.keys(data);
       this.barChartLabels.forEach((label) => {
-        this.barChartData[0].data.push(data[label]['volumeSales']);
-        this.barChartData[1].data.push(data[label]['valueSales']);
+        this.barChartData[0].data.push(data[label]['Failure_Device_ID']);
+        this.barChartData[1].data.push(data[label]['Failure_Endorsement_Key']);
+        this.barChartData[2].data.push(data[label]['Failure_Registration_ID']);
+        this.barChartData[3].data.push(data[label]['Successful']);
       });
     });
 

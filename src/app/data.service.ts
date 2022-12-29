@@ -7,34 +7,78 @@ export class DataService {
 
   getSales() {
     return of({
-      year1: {
-        volumeSales: '1.09',
-        valueSales: '1.23',
+      January: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '0',
+        Failure_Registration_ID: '0',
+        Successful:'0',
       },
-      year2: {
-        volumeSales: '3.11',
-        valueSales: '1.56',
+      February: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '0',
+        Failure_Registration_ID: '0',
+        Successful:'0',
       },
-      year3: {
-        volumeSales: '2.12',
-        valueSales: '4.69',
+      March: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '0',
+        Failure_Registration_ID: '0',
+        Successful:'0',
       },
-      year4: {
-        volumeSales: '1.12',
-        valueSales: '1.64',
+      April: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '1',
+        Failure_Registration_ID: '17',
+        Successful:'15',
       },
-      year5: {
-        volumeSales: '1.10',
-        valueSales: '2.41',
+      May: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '0',
+        Failure_Registration_ID: '0',
+        Successful:'0',
       },
-      Year6: {
-        volumeSales: '8.55',
-        valueSales: '7.53',
+      June: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '0',
+        Failure_Registration_ID: '0',
+        Successful:'0',
       },
-      Year7: {
-        volumeSales: '1.55',
-        valueSales: '7.53',
+      July: {
+        Failure_Device_ID: '0',
+        Failure_Endorsement_Key: '0',
+        Failure_Registration_ID: '3',
+        Successful:'3',
       },
+      August: {
+        Failure_Device_ID: '33',
+        Failure_Endorsement_Key: '72',
+        Failure_Registration_ID: '38',
+        Successful:'24',
+      },
+      September: {
+        Failure_Device_ID: '456',
+        Failure_Endorsement_Key: '465',
+        Failure_Registration_ID: '512',
+        Successful:'395',
+      },
+      October: {
+        Failure_Device_ID: '189',
+        Failure_Endorsement_Key: '208',
+        Failure_Registration_ID: '204',
+        Successful:'71',
+      },
+      November: {
+        Failure_Device_ID: '48',
+        Failure_Endorsement_Key: '54',
+        Failure_Registration_ID: '53',
+        Successful:'25',
+      },
+      // Decmeber: {
+      //   Failure_Device_ID: '1.55',
+      //   Failure_Endorsement_Key: '7.53',
+      //   Failure_Registration_ID: '0',
+      //   Successful:'0',
+      // },
     });
   }
 }
